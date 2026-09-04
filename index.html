@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VISION FOOT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>⚽ VISION FOOT</h1>
+    <button id="adminBtn" class="bipa-btn">BIPA</button>
+  </header>
+
+  <section id="live"><div id="twitch"></div></section>
+
+  <!-- Affichage TV : bandeau fixé en haut à gauche, style diffusion TV -->
+  <section id="score" aria-label="Score du match">
+    <div class="score-top">
+      <span></span>
+      <span id="status">DIRECT</span>
+    </div>
+    <div class="score-line">
+      <b id="home">ÉQUIPE A</b>
+      <div class="score-box"><strong id="scoreHome">0</strong><span class="dash">-</span><strong id="scoreAway">0</strong></div>
+      <b id="away">ÉQUIPE B</b>
+      <span class="clock-box"><span id="clock">00:00</span><span id="extra" hidden></span></span>
+    </div>
+  </section>
+  <p id="message"></p>
+</main>
+
+<dialog id="login">
+  <form id="loginForm">
+    <h2>Connexion Admin</h2>
+    <input id="password" type="password" placeholder="Mot de passe" autocomplete="current-password">
+    <button type="submit">SE CONNECTER</button>
+    <p id="error"></p>
+  </form>
+</dialog>
+
+<dialog id="panel">
+  <div>
+    <button id="close" type="button">FERMER</button>
+    <h2>VISION FOOT ADMIN</h2>
+
+    <label>Affichage TV</label>
+    <div class="button-row">
+      <button id="removeScore" type="button">RETIRER L’AFFICHAGE</button>
+      <button id="showScore" type="button">AFFICHER L’AFFICHAGE</button>
+      <button id="moveScore" type="button">DÉPLACER L’AFFICHAGE</button>
+    </div>
+    <label for="scoreSize">Réduire / agrandir l’affichage</label>
+    <div class="score-control">
+      <input id="scoreSize" type="range" min="50" max="150" step="5" value="100">
+      <span id="scoreSizeValue">100%</span>
+    </div>
+
+    <label>Équipe A</label>
+    <input id="homeIn" placeholder="Équipe A">
+    <label>Couleur du nom A</label>
+    <input id="homeColor" type="color" value="#ffffff">
+    <label>Couleur du contour A</label>
+    <input id="homeOutline" type="color" value="#000000">
+    <label>Couleur du fond A</label>
+    <input id="homeBg" type="color" value="#0964e8">
+
+    <label>Équipe B</label>
+    <input id="awayIn" placeholder="Équipe B">
+    <label>Couleur du nom B</label>
+    <input id="awayColor" type="color" value="#ffffff">
+    <label>Couleur du contour B</label>
+    <input id="awayOutline" type="color" value="#000000">
+    <label>Couleur du fond B</label>
+    <input id="awayBg" type="color" value="#f4c400">
+
+    <button id="saveTeams" type="button">METTRE À JOUR</button>
+
+    <div class="button-row">
+      <button id="homePlus" type="button">A +1</button>
+      <button id="homeMinus" type="button">A -1</button>
+      <button id="awayPlus" type="button">B +1</button>
+      <button id="awayMinus" type="button">B -1</button>
+    </div>
+
+    <div class="button-row">
+      <button id="start" type="button">START</button>
+      <button id="stop" type="button">STOP</button>
+      <button id="reset" type="button">RESET</button>
+    </div>
+
+    <label>Temps additionnel à publier (minutes)</label>
+    <input id="extraIn" type="number" min="0" max="99" placeholder="Temps additionnel">
+    <button id="saveExtra" type="button">PUBLIER</button>
+
+    <label>Couleur du score</label>
+    <input id="scoreColor" type="color" value="#111111">
+    <label>Couleur du fond des scores</label>
+    <input id="scoreBg" type="color" value="#ffffff">
+    <label>Couleur du chronomètre</label>
+    <input id="clockColor" type="color" value="#ffffff">
+    <label>Couleur du temps additionnel</label>
+    <input id="extraColor" type="color" value="#ffffff">
+
+    <textarea id="messageIn" placeholder="Information pour les spectateurs"></textarea>
+    <button id="saveMessage" type="button">PUBLIER LE MESSAGE</button>
+  </div>
+</dialog>
+
+<script src="https://embed.twitch.tv/embed/v1.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
