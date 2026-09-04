@@ -1,0 +1,13 @@
+{
+  "name": "vision-foot-affichage-tv",
+  "private": true,
+  "version": "1.0.1",
+  "scripts": {
+    "deploy": "npx wrangler deploy",
+    "dev": "npx wrangler dev",
+    "build": "node -e \"console.log('Build OK - Wrangler bundle le Worker pendant le deploy')\""
+  },
+  "devDependencies": {
+    "wrangler": "4.68.0"
+  }
+}
